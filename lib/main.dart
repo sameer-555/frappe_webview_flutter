@@ -8,7 +8,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: WebViewApp());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+        home: WebViewApp());
   }
 }
 
@@ -22,7 +24,7 @@ class WebViewApp extends StatefulWidget {
 class _WebViewAppState extends State<WebViewApp> {
   WebViewController controller = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(const Color(0x00000000))
+    //..setBackgroundColor(const Color(0x00000000))
     ..setNavigationDelegate(
       NavigationDelegate(
         onProgress: (int progress) {
@@ -32,22 +34,21 @@ class _WebViewAppState extends State<WebViewApp> {
         onPageFinished: (String url) {},
         onWebResourceError: (WebResourceError error) {},
         onNavigationRequest: (NavigationRequest request) {
-          if (request.url.startsWith('https://www.youtube.com/')) {
+          if (request.url.startsWith('https://flutter.dev/')) {
             return NavigationDecision.prevent;
           }
           return NavigationDecision.navigate;
         },
       ),
     )
-    ..loadRequest(Uri.parse('https://flutter.dev'));
+    ..loadRequest(Uri.parse('https://usamasadiq.engineer/'));
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Usama Sadiq'),
-        ),
-        body: WebViewWidget(controller: controller),
+    return SafeArea(
+      child: Scaffold(
+          body: WebViewWidget(controller: controller),
+      ),
     );
   }
 }
