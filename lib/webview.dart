@@ -11,7 +11,7 @@ class WebViewApp extends StatefulWidget {
 class _WebViewAppState extends State<WebViewApp> {
   WebViewController controller = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-  //..setBackgroundColor(const Color(0x00000000))
+    //..setBackgroundColor(const Color(0x00000000))
     ..setNavigationDelegate(
       NavigationDelegate(
         onProgress: (int progress) {

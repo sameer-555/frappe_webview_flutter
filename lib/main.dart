@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview/splash_screen.dart';
 
-
 void main() => runApp(MyWebView());
 
 class MyWebView extends StatelessWidget {
@@ -15,4 +14,3 @@ class MyWebView extends StatelessWidget {
     );
   }
 }
-
