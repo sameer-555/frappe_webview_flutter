@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webview/splash_screen.dart';
+import 'package:webview/webview.dart';
 
 void main() => runApp(MyWebView());
 
@@ -10,7 +10,7 @@ class MyWebView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: WebViewApp(),
     );
   }
 }
